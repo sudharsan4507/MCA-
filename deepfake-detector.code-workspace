@@ -1,0 +1,101 @@
+{
+  "folders": [
+    { "name": "Backend (FastAPI)", "path": "./backend" },
+    { "name": "Frontend (React)",  "path": "./frontend" }
+  ],
+  "settings": {
+    "python.defaultInterpreterPath": "python",
+    "python.formatting.provider": "black",
+    "editor.formatOnSave": true,
+    "editor.tabSize": 2,
+    "files.exclude": {
+      "**/__pycache__": true,
+      "**/*.pyc": true,
+      "**/node_modules": true,
+      "**/.DS_Store": true
+    },
+    "editor.rulers": [88],
+    "python.linting.enabled": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "[python]": { "editor.tabSize": 4 },
+    "[javascript]": { "editor.tabSize": 2 },
+    "[javascriptreact]": { "editor.tabSize": 2 }
+  },
+  "extensions": {
+    "recommendations": [
+      "ms-python.python",
+      "ms-python.vscode-pylance",
+      "dbaeumer.vscode-eslint",
+      "esbenp.prettier-vscode",
+      "bradlc.vscode-tailwindcss",
+      "formulahendry.auto-rename-tag",
+      "PKief.material-icon-theme"
+    ]
+  },
+  "tasks": {
+    "version": "2.0.0",
+    "tasks": [
+      {
+        "label": "Start Backend",
+        "type": "shell",
+        "command": "uvicorn main:app --reload --host 0.0.0.0 --port 8000",
+        "options": { "cwd": "${workspaceFolder}/backend" },
+        "group": "build",
+        "presentation": { "panel": "dedicated", "reveal": "always" },
+        "problemMatcher": []
+      },
+      {
+        "label": "Start Frontend",
+        "type": "shell",
+        "command": "npm start",
+        "options": { "cwd": "${workspaceFolder}/frontend" },
+        "group": "build",
+        "presentation": { "panel": "dedicated", "reveal": "always" },
+        "problemMatcher": []
+      },
+      {
+        "label": "Run Backend Tests",
+        "type": "shell",
+        "command": "python test_backend.py",
+        "options": { "cwd": "${workspaceFolder}/backend" },
+        "group": "test",
+        "presentation": { "panel": "shared", "reveal": "always" },
+        "problemMatcher": []
+      },
+      {
+        "label": "Install Backend Dependencies",
+        "type": "shell",
+        "command": "pip install -r requirements.txt",
+        "options": { "cwd": "${workspaceFolder}/backend" },
+        "group": "build",
+        "presentation": { "panel": "shared", "reveal": "always" },
+        "problemMatcher": []
+      },
+      {
+        "label": "Install Frontend Dependencies",
+        "type": "shell",
+        "command": "npm install",
+        "options": { "cwd": "${workspaceFolder}/frontend" },
+        "group": "build",
+        "presentation": { "panel": "shared", "reveal": "always" },
+        "problemMatcher": []
+      }
+    ]
+  },
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Python: FastAPI",
+        "type": "python",
+        "request": "launch",
+        "module": "uvicorn",
+        "args": ["main:app", "--reload", "--port", "8000"],
+        "cwd": "${workspaceFolder}/backend",
+        "jinja": true,
+        "justMyCode": true
+      }
+    ]
+  }
+}

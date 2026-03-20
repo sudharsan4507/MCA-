@@ -1,0 +1,31 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pkl
+*.egg-info/
+dist/
+build/
+.env
+venv/
+.venv/
+
+# Backend runtime
+backend/uploads/*
+!backend/uploads/.gitkeep
+backend/history.json
+
+# HuggingFace cache
+.cache/
+
+# Node
+frontend/node_modules/
+frontend/build/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Keep these:
+!frontend/.env.production
+!vercel.json
+!render.yaml

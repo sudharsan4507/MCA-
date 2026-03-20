@@ -1,0 +1,11 @@
+{
+  "buildCommand": "cd frontend && npm install && npm run build",
+  "outputDirectory": "frontend/build",
+  "installCommand": "cd frontend && npm install",
+  "env": {
+    "CI": "false",
+    "GENERATE_SOURCEMAP": "false",
+    "REACT_APP_API_URL": "https://deepfake-audio-detector-j68p.onrender.com"
+  },
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+}
